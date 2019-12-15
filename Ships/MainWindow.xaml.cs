@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Ships.ViewModel;
+using System.Windows;
 
 namespace Ships
 {
@@ -10,6 +11,8 @@ namespace Ships
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new BattleShipViewModel();
         }
     }
 }
