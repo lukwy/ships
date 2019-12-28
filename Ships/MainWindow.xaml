@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox Width="150px" Height="20px" Text="Wybierz rozmiar mapy" Margin="10,10,632,389" ItemsSource="{Binding SalesPeriods}" SelectedItem="{Binding SelectedItem}" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ItemsControl ItemsSource="{Binding ShipsData}" Margin="0px 200px 0px 0px" Width="400">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="{Binding Content}" Command="{Binding Path=ButtonClick}" Background="{Binding Color}" Width="{Binding Size}" Height="{Binding Size}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>
