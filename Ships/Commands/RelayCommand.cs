@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Ships.Commands
@@ -15,6 +11,12 @@ namespace Ships.Commands
         public RelayCommand(Action handler)
         {
             this.handler = handler;
+        }
+
+        public RelayCommand(Action handler, bool isEnabled)
+        {
+            this.handler = handler;
+            IsEnabled = isEnabled;
         }
 
         public bool IsEnabled

@@ -19,5 +19,6 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         <Button Content="Play" Command="{Binding Path=StartCommand}" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="151,10,0,0" TextWrapping="Wrap" Text="{Binding Message.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
     </Grid>
 </Window>
