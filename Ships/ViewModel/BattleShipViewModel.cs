@@ -49,8 +49,8 @@ namespace Ships.ViewModel
                 {
                     ship.IsGameStarted = true;
                     ship.SetWhite();
-                    Message.Text = ShipsData.Where(s=>s.IsShip).Count().ToString();
                 }
+                Message.Text = ShipsData.Where(s => s.IsShip).Count().ToString();
             }
         }
     }
