@@ -1,21 +1,16 @@
 ﻿using Ships.Commands;
+using Ships.Model.Interfaces;
 using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Ships.Model
 {
-    public class Ship : INotifyPropertyChanged
+    public class Ship : INotifyPropertyChanged, IShip
     {
         public ICommand ButtonClick { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public Ship()
-        {
-            ButtonClick = new RelayCommand(ChangeColor, true);
-        }
-
         public bool IsShip { get; private set; }
         public bool IsGameStarted { get; set; }
 
@@ -31,6 +26,11 @@ namespace Ships.Model
                 _Color = value;
                 NotifyPropertyChanged("Color");
             }
+        }
+
+        public Ship()
+        {
+            ButtonClick = new RelayCommand(ChangeColor, true);
         }
 
         private void ChangeColor()

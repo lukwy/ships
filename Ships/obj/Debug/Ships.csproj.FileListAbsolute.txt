@@ -1,7 +1,6 @@
 C:\Users\Lukasz\source\repos\Ships\Ships\bin\Debug\Ships.exe.config
 C:\Users\Lukasz\source\repos\Ships\Ships\bin\Debug\Ships.exe
 C:\Users\Lukasz\source\repos\Ships\Ships\bin\Debug\Ships.pdb
-C:\Users\Lukasz\source\repos\Ships\Ships\obj\Debug\Ships.csprojAssemblyReference.cache
 C:\Users\Lukasz\source\repos\Ships\Ships\obj\Debug\MainWindow.g.cs
 C:\Users\Lukasz\source\repos\Ships\Ships\obj\Debug\App.g.cs
 C:\Users\Lukasz\source\repos\Ships\Ships\obj\Debug\Ships_MarkupCompile.cache

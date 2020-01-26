@@ -1,24 +1,25 @@
 ﻿using Ships.Commands;
+using Ships.Model.Interfaces;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Ships.Model
 {
-    class TextCounter : INotifyPropertyChanged
+    public class TextCounter : INotifyPropertyChanged, ITextCounter
     {
         public ICommand TextChangeCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string text;
+        private string _Text;
 
         public string Text
         { 
-            get{ return text; }
+            get{ return _Text; }
             set
             { 
-                text = $"Ships to destroy: {value}";
-                this.NotifyPropertyChanged("Text");
+                _Text = $"Ships to destroy: {value}";
+                NotifyPropertyChanged("Text");
             }
         }
 

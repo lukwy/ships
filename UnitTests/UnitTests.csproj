@@ -63,8 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSetterTest.cs" />
     <Compile Include="ShipTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextCounterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

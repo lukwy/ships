@@ -1,57 +1,20 @@
 ﻿using Ships.Model;
-using System.Collections.ObjectModel;
-using System.Linq;
-using Ships.Commands;
+using Ships.Model.Interfaces;
 
 namespace Ships.ViewModel
 {
     internal class BattleShipViewModel
     {
+        public IGameSetter GameSetter { get; private set; }
         public BattleShipViewModel()
         {
-            _ShipsData = new ObservableCollection<Ship>();
-            Generate();
-            StartCommand = new RelayCommand(StartGame, true);
-            message = new TextCounter();
+            ITextCounter message = new TextCounter();
+            GameSetter = new GameSetter(message);
         }
 
-        public RelayCommand StartCommand { get; set; }
-
-        private ObservableCollection<Ship> _ShipsData;
-        public ObservableCollection<Ship> ShipsData { get { return _ShipsData; } }
-
-        private TextCounter message;
-
-        public TextCounter Message
+        public void Init()
         {
-            get { return message; }
-            set { message = value; }
-        }
-
-
-        public void Generate()
-        {
-            _ShipsData.Clear();
-
-            for (int i = 0; i < 400; i++)
-            {
-                var temp = new Ship();
-                temp.SetWhite();
-                _ShipsData.Add(temp);
-            }
-        }
-
-        private void StartGame()
-        {
-            if (ShipsData.Any(s=>s.IsShip))
-            {
-                foreach (var ship in ShipsData)
-                {
-                    ship.IsGameStarted = true;
-                    ship.SetWhite();
-                }
-                Message.Text = ShipsData.Where(s => s.IsShip).Count().ToString();
-            }
+            GameSetter.GenerateMap();
         }
     }
 }

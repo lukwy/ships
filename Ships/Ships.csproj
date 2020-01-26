@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Model\GameSetter.cs" />
+    <Compile Include="Model\Interfaces\IGameSetter.cs" />
+    <Compile Include="Model\Interfaces\IShip.cs" />
+    <Compile Include="Model\Interfaces\ITextCounter.cs" />
     <Compile Include="Model\TextCounter.cs" />
     <Compile Include="ViewModel\BattleShipViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -1,50 +1,62 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ships.Model;
+using Ships.Model.Interfaces;
 using System.Windows.Media;
 
 namespace UnitTests
 {
     [TestClass]
-    class ShipTest
+    public class ShipTest
     {
         [TestMethod]
-        public void SetWhiteShould()
+        public void Ship_SetWhiteColorTest()
         {
-            Mock<Ship> shipMock = new Mock<Ship>();
+            IShip ship = new Ship();
 
-            shipMock.Setup(s => s.SetWhite());
+            ship.SetWhite();
 
             Brush whiteBrush = Brushes.White;
 
-            Assert.AreEqual(shipMock.Object.Color, whiteBrush);
+            Assert.AreEqual(ship.Color, whiteBrush);
         }
 
         [TestMethod]
-        public void ChangeColorOnGreenBeforeGameStart()
+        public void Ship_ChangeColorOnGreenBeforeGameStartTest()
         {
-            Mock<Ship> shipMock = new Mock<Ship>();
+            IShip ship = new Ship();
 
-            shipMock.Setup(s => s.SetWhite());
-            shipMock.Setup(s => s.ButtonClick);
+            ship.SetWhite();
+            ship.ButtonClick.Execute(new object());
 
             Brush greenColor = Brushes.Chartreuse;
 
-            Assert.AreEqual(shipMock.Object.Color, greenColor);
+            Assert.AreEqual(ship.Color, greenColor);
         }
 
         [TestMethod]
-        public void ChangeColorOnRedAfterGameStart()
+        public void Ship_ChangeColorOnRedAfterGameStartTest()
         {
-            Mock<Ship> shipMock = new Mock<Ship>();
+            IShip ship = new Ship();
 
-            shipMock.Setup(s => s.SetWhite());
-            shipMock.Object.IsGameStarted = true;
-            shipMock.Setup(s => s.ButtonClick);
+            ship.SetWhite();
+            ship.IsGameStarted = true;
+            ship.ButtonClick.Execute(new object());
 
             Brush redColor = Brushes.Red;
 
-            Assert.AreEqual(shipMock.Object.Color, redColor);
+            Assert.AreEqual(ship.Color, redColor);
+        }
+
+        [TestMethod]
+        public void Ship_SetAsShipTest()
+        {
+            IShip ship = new Ship();
+
+            ship.SetWhite();
+            ship.ButtonClick.Execute(new object());
+
+            Assert.AreEqual(ship.IsShip, true);
         }
     }
 }
