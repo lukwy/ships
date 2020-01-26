@@ -10,6 +10,8 @@ namespace Ships.ViewModel
         {
             ITextCounter message = new TextCounter();
             GameSetter = new GameSetter(message);
+
+            Init();
         }
 
         public void Init()
