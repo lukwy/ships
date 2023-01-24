@@ -33,7 +33,6 @@ namespace Ships.Model
             StartCommand = new RelayCommand(StartGame, true); 
         }
 
-
         public void GenerateMap()
         {
             ShipsData.Clear();
